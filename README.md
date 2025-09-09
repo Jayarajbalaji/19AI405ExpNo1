@@ -1,9 +1,7 @@
 <h1>ExpNo 1 :Developing AI Agent with PEAS Description</h1>
-<h3>Name: JAYARAJ b</h3>
+<h3>Name: JAYARAJ B</h3>
 <h3>Register Numbe: 212223043002</h3>
-
-
-<h3>AIM:</h3>
+<h1>AIM:</h1>
 <br>
 <p>To find the PEAS description for the given AI problem and develop an AI agent.</p>
 <br>
@@ -40,3 +38,60 @@
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
+
+
+## PROGRAM 
+
+
+~~~
+class HealthAgent:
+    def __init__(self, patient):
+        self.patient = patient
+
+    def monitor(self):
+        state = self.sensors.get_state()
+        action = self.decide(state)
+        self.actuators.execute(action)
+
+    def decide(self, state):
+        if state['heart_rate'] > 120:
+            return "Alert: High heart rate detected"
+        elif state['blood_pressure'] > 140:
+            return "Alert: High blood pressure detected"
+        elif state['temperature'] > 38:
+            return "Recommend rest and monitor temperature"
+        else:
+            return "No specific action needed"
+
+class Sensors:
+    def get_state(self):
+        return {
+            'heart_rate': int(input("Enter heart rate: ")),
+            'blood_pressure': int(input("Enter blood pressure: ")),
+            'temperature': float(input("Enter body temperature (°C): "))
+        }
+
+class Actuators:
+    def execute(self, action):
+        print("\nAction ->", action)
+
+if __name__ == "__main__":
+    patient = {'id': 123, 'name': 'John Doe', 'age': 35}
+
+    sensors = Sensors()
+    actuators = Actuators()
+
+    agent = HealthAgent(patient)
+    agent.sensors = sensors
+    agent.actuators = actuators
+
+    agent.monitor()
+~~~
+
+## OUTPUT
+
+<img width="1404" height="356" alt="Screenshot 2025-09-09 140435" src="https://github.com/user-attachments/assets/feda0cf4-e13a-4609-aa91-66081223ea9d" />
+
+## RESULT 
+
+Hence, the solution for the given AI problem is found.
